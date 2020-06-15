@@ -16,10 +16,14 @@
                    class="form-control"
                    ngModel
                    name="username"
-                   required>
+                   required
+                   #username="ngModel">
+            <!--Here, we need to have an evaluation of the expression of the ngIf to show/hide the validation message.-->
+            <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid value!</span>
+            <!--This is another apprach with the expression where we use the local reference of the form
+              and therefore we do not need the local reference at the control level, in this case is the #username="ngModel" at the input.-->
+            <!--<span class="help-block" *ngIf="!f.controls.username.valid && f.controls.username.touched">Please enter a valid value!</span>-->
           </div>
-          <!--Here, we need to have an evaluation of the expression of the ngIf to show/hide the validation message.-->
-          <p *ngIf="true">Please enter a valid value!</p>
           <button class="btn btn-default" type="button">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
@@ -29,10 +33,11 @@
                    ngModel
                    name="email"
                    required
-                   email>
+                   email
+                   #email="ngModel">
+            <!--Here, we need to have an evaluation of the expression of the ngIf to show/hide the validation message.-->
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
           </div>
-          <!--Here, we need to have an evaluation of the expression of the ngIf to show/hide the validation message.-->
-          <p *ngIf="true">Please enter a valid value!</p>
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
