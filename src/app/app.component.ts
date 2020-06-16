@@ -17,6 +17,17 @@ export class AppComponent {
     { name: 'facebook', checked: true },
     { name: 'instagram', checked: false }
   ];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    questionAnswer: '',
+    gender: '',
+    twitter: false,
+    youtube: false,
+    facebook: false,
+    instagram: false
+  };
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -74,6 +85,7 @@ export class AppComponent {
   //Here we pass the form with @ViewChild.
   //This allow us to get access to the form earlier than when it is submitted. (validations, etc.)
   onSubmit() {
+    /*
     console.log(this.constructor.name + " - Submitted!");
     console.log(this.constructor.name + ' - This is the form', this.form);
     console.log(this.constructor.name + ' - Here are the JS object of form.value', this.form.value);
@@ -81,6 +93,17 @@ export class AppComponent {
     console.log(this.constructor.name + ' - Form email value is ' + this.form.value.email);
     console.log(this.constructor.name + ' - Form secret value is ' + this.form.value.secret);
     console.log(this.constructor.name + ' - Form question answer value is ' + this.form.value.questionAnswer);
+    */
+
+    this.user.username = this.form.value.userData.username;
+    this.user.email = this.form.value.userData.email;
+    this.user.secretQuestion = this.form.value.secret;
+    this.user.questionAnswer = this.form.value.questionAnswer;
+    this.user.gender = this.form.value.gender;
+    this.user.twitter = this.form.value.socialMedia.twitter;
+    this.user.youtube = this.form.value.socialMedia.youtube;
+    this.user.facebook = this.form.value.socialMedia.facebook;
+    this.user.instagram = this.form.value.socialMedia.instagram;
   }
 }
 
