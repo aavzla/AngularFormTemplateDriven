@@ -10,6 +10,13 @@ export class AppComponent {
   @ViewChild('f', { static: false }) form: NgForm;
   defaultQuestion: string = 'pet';
   answer: string;
+  genders = ['male', 'female'];
+  socialMedias = [
+    { name: 'twitter', checked: true },
+    { name: 'youtube', checked: false },
+    { name: 'facebook', checked: true },
+    { name: 'instagram', checked: false }
+  ];
 
   suggestUserName() {
     const suggestedName = 'Superuser';
