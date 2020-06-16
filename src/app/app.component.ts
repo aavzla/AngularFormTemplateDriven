@@ -104,6 +104,34 @@ export class AppComponent {
     this.user.youtube = this.form.value.socialMedia.youtube;
     this.user.facebook = this.form.value.socialMedia.facebook;
     this.user.instagram = this.form.value.socialMedia.instagram;
+
+    //Here, we can reset the form to the default values.
+    this.form.reset();
+
+    //Here, we can reset the form with a specific default values as we want it.
+    /*
+    console.log('the form before the reset', this.form.value);
+    console.log('the form pristine status', this.form.pristine);
+    console.log('the form untouched status', this.form.untouched);
+    this.form.reset({
+      userData: {
+        username: '',
+        email: ''
+      },
+      secret: 'pet',
+      questionAnswer: '',
+      gender: '',
+      socialMedia: {
+        twitter: false,
+        youtube: false,
+        facebook: true,
+        instagram: false
+      }
+    });
+    console.log('the form after the reset', this.form.value);
+    console.log('the form pristine status', this.form.pristine);
+    console.log('the form untouched status', this.form.untouched);
+    */
   }
 }
 
