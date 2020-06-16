@@ -20,6 +20,38 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+
+    /*
+     * This approach allow to charge all values of the form,
+     * but if the user already filled some info, it will override that info.
+     * Here, we are forced to pass all the form group complete (all fields with values).
+    */
+    /*
+    this.form.setValue({
+      userData: {
+        username: suggestedName,
+        email: ''
+      },
+      secret: 'pet',
+      questionAnswer: '',
+      gender: 'male',
+      socialMedia: {
+        twitter: false,
+        youtube: false,
+        facebook: true,
+        instagram: false
+      }
+    });
+    */
+
+    //This approach will fill or replace only the username, as needed.
+    //Here, this.form represents the ViewChild property. It is the overall ngForm object that acts as a container of your form.
+    //And the second '.form' represents the form group inside the ngForm container.
+    this.form.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   /*

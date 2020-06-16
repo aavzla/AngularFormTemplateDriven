@@ -26,7 +26,9 @@
             and therefore we do not need the local reference at the control level, in this case is the #username="ngModel" at the input.-->
             <!--<span class="help-block" *ngIf="!f.controls.username.valid && f.controls.username.touched">Please enter a valid value!</span>-->
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default"
+                  type="button"
+                  (click)="suggestUserName()">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input type="email"
